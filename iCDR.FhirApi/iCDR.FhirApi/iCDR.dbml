@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="iCDR" Class="iCDRDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NDC06SRVPOCSQL2;Initial Catalog=iCDR;Persist Security Info=True;User ID=iCDR" SettingsObjectName="iCDR.FhirApi.Properties.Settings" SettingsPropertyName="iCDRConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.CreateFhirResourceId" Method="CreateFhirResourceId">
+    <Parameter Name="ResourceType" Parameter="resourceType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ResourceId" Parameter="resourceId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreateFhirResourceVersion" Method="CreateFhirResourceVersion">
+    <Parameter Name="ResourceId" Parameter="resourceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Version" Parameter="version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateTimeCreated" Parameter="dateTimeCreated" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ResourceXml" Parameter="resourceXml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatePatientIdentifierResourceLink" Method="CreatePatientIdentifierResourceLink">
+    <Parameter Name="IdentifierValue" Parameter="identifierValue" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IdentifierSystem" Parameter="identifierSystem" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ResourceId" Parameter="resourceId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddToSearchIndex" Method="AddToSearchIndex">
+    <Parameter Name="ResourceId" Parameter="resourceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Field" Parameter="field" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Value" Parameter="value" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetFhirResourceCurrentVersion" Method="GetFhirResourceCurrentVersion">
+    <Parameter Name="ResourceId" Parameter="resourceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ResourceVersion" Parameter="resourceVersion" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ClearSearchIndex" Method="ClearSearchIndex">
+    <Parameter Name="ResourceId" Parameter="resourceId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

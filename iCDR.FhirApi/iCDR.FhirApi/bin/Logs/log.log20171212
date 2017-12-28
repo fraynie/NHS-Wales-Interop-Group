@@ -1,0 +1,64 @@
+2017-12-12 10:23:31,400 INFO - GET http://rqfw3lap0000147.cymru.nhs.uk:12345/Observation/4 OK
+2017-12-12 10:31:02,745 INFO - GET http://rqfw3lap0000147.cymru.nhs.uk:12345/Observation/4 OK
+2017-12-12 10:33:59,709 INFO - GET http://localhost:12345/Observation/4 OK
+2017-12-12 10:34:56,745 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 10:36:19,745 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:18:44,877 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:19:21,682 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:20:02,762 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:20:15,869 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:21:45,059 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:21:54,991 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:21:56,414 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:23:40,171 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:23:41,645 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:29:42,353 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:29:43,912 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:29:53,728 INFO - GET http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 12:29:58,534 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:30:56,709 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:30:59,540 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:31:02,577 INFO - GET http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 12:43:10,191 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:45:13,640 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:45:45,552 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:45:52,856 INFO - GET http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 12:48:49,070 INFO - GET http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 12:49:06,931 INFO - PUT http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 12:51:02,503 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 12:51:06,984 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 12:51:10,730 INFO - GET http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 12:51:15,472 INFO - PUT http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 13:54:49,960 ERROR - GET http://rqfw3lap0000147:12345/Observation?subject.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.108%7CA8098666&code=http%3A%2F%2Fsnomed.info%2Fsct%7C364075005 InternalServerError
+2017-12-12 13:54:49,964 DEBUG - System.Data.SqlClient.SqlException (0x80131904): FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 298
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 53
+ClientConnectionId:d51cb2fc-8839-4141-bf83-68e9aca162f9
+Error Number:60000,State:1,Class:16
+2017-12-12 13:56:26,751 INFO - GET http://rqfw3lap0000147:12345/Observation?patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.108%7CA8098666&code=http%3A%2F%2Fsnomed.info%2Fsct%7C364075005 OK
+2017-12-12 13:56:42,699 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 13:56:43,662 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 13:56:50,234 INFO - GET http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 13:56:50,396 INFO - PUT http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 13:58:51,244 INFO - GET http://rqfw3lap0000147:12345/Observation?patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.108%7CA8098666&code=http%3A%2F%2Fsnomed.info%2Fsct%7C364075005 OK
+2017-12-12 13:58:52,130 INFO - GET http://rqfw3lap0000147:12345/Observation/4 OK
+2017-12-12 13:58:52,960 INFO - POST http://rqfw3lap0000147:12345/Observation Created
+2017-12-12 13:58:52,984 INFO - GET http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 13:58:53,175 INFO - PUT http://rqfw3lap0000147:12345/Observation/1009 OK
+2017-12-12 14:03:28,434 INFO - GET http://localhost:12345/observation?patient.identifier%3Durn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.108%7CA8098666%2Curn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.140%7CX123456%26category%3Dvital-signs%26code%3D75367002 OK
+2017-12-12 14:07:16,532 INFO - GET http://rqfw3lap0000147:12345/Observation?patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.140%7CX123456&code=http%3A%2F%2Fsnomed.info%2Fsct%7C364075005 OK
+2017-12-12 14:07:18,200 INFO - GET http://rqfw3lap0000147:12345/Observation?patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.140%7CX123456&code=http%3A%2F%2Fsnomed.info%2Fsct%7C364075005 OK
+2017-12-12 14:33:26,766 INFO - GET http://rqfw3lap0000147:12345/Observation?patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.140%7CX123456&code=http%3A%2F%2Fsnomed.info%2Fsct%7C364075005 OK
+2017-12-12 15:26:37,352 INFO - GET http://rqfw3lap0000147:12345/Observation?patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.140%7CX123456&patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.108%7CA8098666&code=http%3A%2F%2Fsnomed.info%2Fsct%7C364075005 OK

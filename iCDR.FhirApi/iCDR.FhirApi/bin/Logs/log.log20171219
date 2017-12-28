@@ -1,0 +1,15 @@
+2017-12-19 13:43:57,941 ERROR - POST http://localhost:12345/Observation InternalServerError
+2017-12-19 13:43:57,998 DEBUG - System.FormatException: Cannot parse xml: Root element is missing.
+   at Hl7.Fhir.Utility.SerializationUtil.XDocumentFromReader(XmlReader reader)
+   at Hl7.Fhir.Serialization.XmlDomFhirNavigator.Create(XmlReader reader)
+   at Hl7.Fhir.Serialization.XmlDomFhirNavigator.Create(String xml)
+   at Hl7.Fhir.Serialization.FhirXmlParser.Parse(String xml, Type dataType)
+   at Hl7.Fhir.Serialization.FhirXmlParser.Parse[T](String xml)
+   at iCDR.FhirApi.iCdrHelper.RetrieveFhirResourceFromRequest[TResource](Request request) in C:\Users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 481
+   at iCDR.FhirApi.iCdrHelper.ProcessPostRequest[TResource](Request request, List`1 searchFields) in C:\Users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 73
+2017-12-19 13:43:58,126 DEBUG - 
+2017-12-19 13:44:35,931 INFO - POST http://localhost:12345/Observation Created
+2017-12-19 13:45:58,570 INFO - GET http://localhost:12345/observation/2037 OK
+2017-12-19 13:46:53,940 INFO - GET http://localhost:12345/observation/2037 OK
+2017-12-19 14:30:26,639 INFO - POST http://localhost:12345/Observation Created
+2017-12-19 14:45:15,670 INFO - POST http://localhost:12345/Observation Created

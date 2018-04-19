@@ -1,0 +1,61 @@
+2018-01-23 10:48:18,360 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-23 10:48:41,155 INFO - POST http://localhost:12345 OK
+2018-01-23 11:56:42,478 ERROR - GET http://localhost:12345/AllergyIntolerance/17 InternalServerError
+2018-01-23 11:56:42,488 DEBUG - System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=122; handshake=14912;  ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at iCDR.FhirApi.iCdrHelper.GetFhirResourceById[TResource](Int32 id) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 343
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request, Int32 resourceId) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 122
+ClientConnectionId:b66544ab-4673-4b09-9dca-f500f03b81cb
+Error Number:-2,State:0,Class:11
+2018-01-23 11:56:44,472 ERROR - GET http://localhost:12345/AllergyIntolerance/17 InternalServerError
+2018-01-23 11:56:44,481 DEBUG - System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=122; handshake=14912;  ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at iCDR.FhirApi.iCdrHelper.GetFhirResourceById[TResource](Int32 id) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 343
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request, Int32 resourceId) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 122
+ClientConnectionId:b66544ab-4673-4b09-9dca-f500f03b81cb
+Error Number:-2,State:0,Class:11
+2018-01-23 11:57:07,935 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-23 11:58:58,531 ERROR - GET http://localhost:12345/AllergyIntolerance/17 InternalServerError
+2018-01-23 11:58:58,545 DEBUG - System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=45; handshake=14984;  ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at iCDR.FhirApi.iCdrHelper.GetFhirResourceById[TResource](Int32 id) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 343
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request, Int32 resourceId) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 122
+ClientConnectionId:bc6782aa-a5d9-4f60-bf11-3200c0185fa2
+Error Number:-2,State:0,Class:11
+2018-01-23 11:59:42,327 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-23 12:49:50,353 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-23 12:50:10,203 INFO - POST http://localhost:12345 OK
+2018-01-23 12:57:06,808 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-23 13:19:59,024 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-23 13:20:02,420 INFO - POST http://localhost:12345 OK

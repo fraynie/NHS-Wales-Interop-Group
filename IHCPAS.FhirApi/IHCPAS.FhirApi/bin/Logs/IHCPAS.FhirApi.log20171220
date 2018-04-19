@@ -1,0 +1,32 @@
+2017-12-20 14:58:10,531 INFO - GET http://localhost:12349/patient?given=irene&birthdate=1948-12-29 OK
+2017-12-20 14:58:46,508 INFO - GET http://localhost:12349/patient?given=irene&birthdate=1948-12-29 OK
+2017-12-20 14:58:49,552 INFO - GET http://localhost:12349/patient?given=irene&birthdate=1948-12-29 OK
+2017-12-20 14:59:51,214 ERROR - GET http://localhost:12349/patient?given=irene&birthdate=1948-12-29 InternalServerError
+2017-12-20 14:59:51,234 DEBUG - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "IHCPASxxx" requested by the login. The login failed.
+Login failed for user 'CYMRU\ma000310'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at IHCPAS.FhirApi.PatientModule.<.ctor>b__1_0(Object parameters) in C:\Users\ma000310\documents\visual studio 2015\Projects\IHCPAS.FhirApi\IHCPAS.FhirApi\PatientModule.cs:line 205
+ClientConnectionId:ab2d05b0-e68c-42e8-adfd-dc9f32ba0b2a
+Error Number:4060,State:1,Class:11
+2017-12-20 15:01:33,516 INFO - GET http://localhost:12349/patient?given=irene&birthdate=1948-12-29 OK
+2017-12-20 15:01:50,860 INFO - GET http://localhost:12349/patient?family=jones OK
+2017-12-20 15:04:16,270 ERROR - GET http://localhost:12349/patient?identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CE100012 InternalServerError
+2017-12-20 15:04:16,272 DEBUG - System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at IHCPAS.FhirApi.PatientModule.<.ctor>b__1_0(Object parameters) in C:\Users\ma000310\documents\visual studio 2015\Projects\IHCPAS.FhirApi\IHCPAS.FhirApi\PatientModule.cs:line 212
+2017-12-20 15:04:33,747 ERROR - GET http://localhost:12349/patient?identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CE100012 InternalServerError
+2017-12-20 15:04:33,749 DEBUG - System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at IHCPAS.FhirApi.PatientModule.<.ctor>b__1_0(Object parameters) in C:\Users\ma000310\documents\visual studio 2015\Projects\IHCPAS.FhirApi\IHCPAS.FhirApi\PatientModule.cs:line 212
+2017-12-20 15:07:19,645 INFO - GET http://localhost:12349/patient?identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CE100012 OK
+2017-12-20 15:11:43,555 INFO - GET http://localhost:12349/patient?identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CE1000dddd OK

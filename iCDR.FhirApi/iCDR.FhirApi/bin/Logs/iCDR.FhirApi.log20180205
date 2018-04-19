@@ -1,0 +1,3 @@
+2018-02-05 17:17:07,656 INFO - POST http://localhost:12345/AllergyIntolerance Created
+2018-02-05 17:17:14,251 INFO - GET http://localhost:12345/AllergyIntolerance/40 OK
+2018-02-05 17:17:16,573 INFO - PUT http://localhost:12345/AllergyIntolerance/40 OK

@@ -1,0 +1,82 @@
+2018-01-24 11:25:14,327 INFO - GET http://localhost:12345/AllergyIntolerance/34 OK
+2018-01-24 14:07:03,381 INFO - GET http://localhost:12345/AllergyIntolerance/17/_history?_summary=false OK
+2018-01-24 14:11:02,366 INFO - GET http://localhost:12345/AllergyIntolerance/17/_history?_summary=false OK
+2018-01-24 14:21:52,557 INFO - GET http://localhost:12345/AllergyIntolerance/17/_history?_summary=false OK
+2018-01-24 14:40:03,785 INFO - GET http://localhost:12345/AllergyIntolerance/17/_history?_summary=false OK
+2018-01-24 15:23:12,682 ERROR - GET http://localhost:12345/AllergyIntolerance?34 InternalServerError
+2018-01-24 15:23:12,692 DEBUG - System.Data.SqlClient.SqlException (0x80131904): FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 518
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 194
+ClientConnectionId:a765c872-a7fa-4aa6-a952-f02da3c2ffb5
+Error Number:60000,State:1,Class:16
+2018-01-24 15:23:38,345 INFO - GET http://localhost:12345/AllergyIntolerance/34 OK
+2018-01-24 15:24:26,436 ERROR - GET http://localhost:12345/AllergyIntolerance?34 InternalServerError
+2018-01-24 15:24:26,437 DEBUG - System.Data.SqlClient.SqlException (0x80131904): FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 518
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 194
+ClientConnectionId:a765c872-a7fa-4aa6-a952-f02da3c2ffb5
+Error Number:60000,State:1,Class:16
+2018-01-24 15:24:53,058 ERROR - GET http://localhost:12345/AllergyIntolerance?34 InternalServerError
+2018-01-24 15:24:53,068 DEBUG - System.Data.SqlClient.SqlException (0x80131904): FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 518
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 194
+ClientConnectionId:4605cef2-7198-40e2-b935-893cccc0e78c
+Error Number:60000,State:1,Class:16
+2018-01-24 15:27:12,044 ERROR - GET http://localhost:12345/AllergyIntolerance?34 InternalServerError
+2018-01-24 15:27:12,047 DEBUG - System.Data.SqlClient.SqlException (0x80131904): FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 518
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 194
+ClientConnectionId:4605cef2-7198-40e2-b935-893cccc0e78c
+Error Number:60000,State:1,Class:16
+2018-01-24 15:30:45,137 INFO - POST http://localhost:12345/AllergyIntolerance Created
+2018-01-24 15:30:50,332 INFO - GET http://localhost:12345/AllergyIntolerance/35 OK
+2018-01-24 15:30:50,531 INFO - PUT http://localhost:12345/AllergyIntolerance/35 OK
+2018-01-24 15:31:04,892 INFO - GET http://localhost:12345/AllergyIntolerance/35 OK

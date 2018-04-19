@@ -1,0 +1,12 @@
+2018-01-22 14:36:33,549 INFO - POST http://localhost:12345/AllergyIntolerance Created
+2018-01-22 16:05:18,221 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:28:46,657 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:30:29,975 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:31:45,422 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:33:58,722 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:38:06,687 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:38:19,557 INFO - POST http://localhost:12345 OK
+2018-01-22 16:38:21,512 INFO - POST http://localhost:12345 OK
+2018-01-22 16:41:33,926 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:43:44,923 INFO - GET http://localhost:12345/AllergyIntolerance/17 OK
+2018-01-22 16:44:26,985 INFO - POST http://localhost:12345 OK

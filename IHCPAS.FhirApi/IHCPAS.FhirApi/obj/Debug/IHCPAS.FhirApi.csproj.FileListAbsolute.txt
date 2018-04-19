@@ -19,3 +19,24 @@ c:\users\ma000310\documents\visual studio 2015\Projects\IHCPAS.FhirApi\IHCPAS.Fh
 c:\users\ma000310\documents\visual studio 2015\Projects\IHCPAS.FhirApi\IHCPAS.FhirApi\obj\Debug\IHCPAS.FhirApi.pdb
 C:\Users\ma000310\documents\visual studio 2015\Projects\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\log4net.dll
 C:\Users\ma000310\documents\visual studio 2015\Projects\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\log4net.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\IHCPAS.FhirApi.exe.config
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\obj\Debug\IHCPAS.FhirApi.exe
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\obj\Debug\IHCPAS.FhirApi.pdb
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\IHCPAS.FhirApi.exe
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\IHCPAS.FhirApi.pdb
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Hl7.Fhir.STU3.Core.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Hl7.Fhir.Support.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Hl7.FhirPath.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\log4net.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Nancy.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Nancy.Hosting.Self.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\System.ValueTuple.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Hl7.Fhir.STU3.Core.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Hl7.Fhir.Support.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Hl7.FhirPath.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\log4net.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Nancy.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Nancy.Hosting.Self.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\IHCPAS.FhirApi\IHCPAS.FhirApi\obj\Debug\IHCPAS.FhirApi.csprojResolveAssemblyReference.cache

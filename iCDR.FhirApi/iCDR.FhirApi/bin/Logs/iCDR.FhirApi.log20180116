@@ -1,0 +1,4 @@
+2018-01-16 14:33:07,308 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-16 14:33:24,059 INFO - PUT http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-16 14:41:31,576 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-16 14:41:54,678 INFO - PUT http://localhost:12345/AllergyIntolerance/14 OK

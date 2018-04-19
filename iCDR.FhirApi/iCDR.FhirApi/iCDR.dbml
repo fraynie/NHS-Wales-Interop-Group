@@ -33,4 +33,13 @@
     <Parameter Name="ResourceId" Parameter="resourceId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.prStoreResource" Method="prStoreResource">
+    <Parameter Name="resourceXml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="resourceJSON" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="action" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="url" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="prStoreResourceResult">
+      <Column Name="" Member="Column1" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

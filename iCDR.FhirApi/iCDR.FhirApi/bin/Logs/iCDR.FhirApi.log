@@ -1,3 +1,161 @@
-2017-12-21 10:07:54,225 INFO - GET http://localhost:12345/Observation?code=http%3A%2F%2Fsnomed.info%2Fsct%7C75367002&patient.identifier=urn%3Aoid%3A2.16.840.1.113883.2.1.8.1.3.108%7CA8098666 OK
-2017-12-21 10:07:54,225 INFO - GET http://localhost:12345/observation?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7CA8098666&code=http://snomed.info/sct%7C75367002 OK
-2017-12-21 10:19:15,099 INFO - GET http://localhost:12345/observation/2037 OK
+2018-03-01 10:42:39,716 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 10:42:39,728 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:327f2653-eaad-4134-9925-5bbafda40654
+Error Number:8152,State:10,Class:16
+2018-03-01 10:43:29,057 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 10:43:29,058 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:327f2653-eaad-4134-9925-5bbafda40654
+Error Number:8152,State:10,Class:16
+2018-03-01 10:43:33,611 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 10:43:33,616 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:327f2653-eaad-4134-9925-5bbafda40654
+Error Number:8152,State:10,Class:16
+2018-03-01 10:44:41,740 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 10:44:41,745 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:327f2653-eaad-4134-9925-5bbafda40654
+Error Number:8152,State:10,Class:16
+2018-03-01 10:45:17,505 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 10:45:17,510 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:327f2653-eaad-4134-9925-5bbafda40654
+Error Number:8152,State:10,Class:16
+2018-03-01 11:25:41,198 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 11:25:41,265 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:327f2653-eaad-4134-9925-5bbafda40654
+Error Number:8152,State:10,Class:16
+2018-03-01 13:13:49,346 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 13:13:49,358 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:c7d2eba6-5fb0-4781-a0a8-75fe53b7efce
+Error Number:8152,State:10,Class:16
+2018-03-01 13:14:03,482 ERROR - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 InternalServerError
+2018-03-01 13:14:03,485 DEBUG - System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+FHIR parameter patient.identifier MUST be supplied in the @QueryString.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at iCDR.FhirApi.iCdrHelper.SearchFhirResources[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 520
+   at iCDR.FhirApi.iCdrHelper.ProcessGetRequest[TResource](Request request) in C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\iCdrHelper.cs:line 196
+ClientConnectionId:c7d2eba6-5fb0-4781-a0a8-75fe53b7efce
+Error Number:8152,State:10,Class:16
+2018-03-01 15:17:08,624 INFO - GET http://localhost:12345/AllergyIntolerance?patient.identifier=urn:oid:2.16.840.1.113883.2.1.8.1.3.100%7C3255887,https://fhir.nhs.uk/Id/nhs-number%7C6164785367,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.108%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C163472,urn:oid:2.16.840.1.113883.2.1.8.1.3.103%7C430063,urn:oid:2.16.840.1.113883.2.1.8.1.3.129%7C3677618,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7CC1193593,urn:oid:2.16.840.1.113883.2.1.8.1.3.149%7C242003,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE189202,urn:oid:2.16.840.1.113883.2.1.8.1.3.151%7CHPE211593,urn:oid:2.16.840.1.113883.2.1.8.1.3.139%7C5195657,urn:oid:2.16.840.1.113883.2.1.8.1.3.133%7CABB3021037,urn:oid:2.16.840.1.113883.2.1.8.1.3.140%7CL081109,urn:oid:2.16.840.1.113883.2.1.8.1.3.154%7C53646,urn:oid:2.16.840.1.113883.2.1.8.1.3.105%7CABE934191 OK

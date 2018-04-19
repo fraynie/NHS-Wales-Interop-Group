@@ -1,0 +1,6 @@
+2018-01-18 15:28:37,994 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-18 15:30:32,071 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-18 15:33:17,410 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-18 15:38:00,547 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-18 15:46:17,251 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK
+2018-01-18 15:49:21,565 INFO - GET http://localhost:12345/AllergyIntolerance/14 OK

@@ -105,6 +105,39 @@ namespace iCDR.FhirApi
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), resourceId);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.prStoreResource")]
+		public ISingleResult<prStoreResourceResult> prStoreResource([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Xml")] System.Xml.Linq.XElement resourceXml, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string resourceJSON, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string action, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string url)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), resourceXml, resourceJSON, action, url);
+			return ((ISingleResult<prStoreResourceResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class prStoreResourceResult
+	{
+		
+		private System.DateTime _Column1;
+		
+		public prStoreResourceResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="DateTime NOT NULL")]
+		public System.DateTime Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
 	}
 }
 #pragma warning restore 1591

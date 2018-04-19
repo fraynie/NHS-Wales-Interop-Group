@@ -20,3 +20,25 @@ c:\users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirAp
 C:\Users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\log4net.dll
 C:\Users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\log4net.xml
 C:\Users\ma000310\documents\visual studio 2015\Projects\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\System.ValueTuple.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\iCDR.FhirApi.exe.config
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\obj\Debug\iCDR.FhirApi.exe
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\obj\Debug\iCDR.FhirApi.pdb
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\iCDR.FhirApi.exe
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\iCDR.FhirApi.pdb
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Hl7.Fhir.STU3.Core.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Hl7.Fhir.Support.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Hl7.FhirPath.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\log4net.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Nancy.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Nancy.Hosting.Self.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\System.ValueTuple.dll
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Hl7.Fhir.STU3.Core.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Hl7.Fhir.Support.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Hl7.FhirPath.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\log4net.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Nancy.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Nancy.Hosting.Self.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\bin\Debug\System.ValueTuple.xml
+C:\Users\ma000310\Documents\GitHub\NHS-Wales-Interop-Group\iCDR.FhirApi\iCDR.FhirApi\obj\Debug\iCDR.FhirApi.csprojResolveAssemblyReference.cache

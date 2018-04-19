@@ -23,10 +23,153 @@ namespace iCDR.FhirApi
     {
         private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        internal static Response ProcessTransaction(Request request)
+        {
+            //Resource response;
+            try
+            {
+                var requestBundle = RetrieveFhirResourceFromRequest<Bundle>(request);
+                if (requestBundle.Type != Bundle.BundleType.Batch)
+                    throw new FhirApiException("Unable to hanlde this bundle type",
+                        "FHIR API can only support 'batch' transactions", HttpStatusCode.NotImplemented, "501", "Not Implemented");
+
+                Bundle responseBundle = new Bundle {Type = Bundle.BundleType.BatchResponse};
+
+                foreach (Bundle.EntryComponent entry in requestBundle.Entry)
+                {
+                    try
+                    {
+                        if (entry.Request == null) throw new FhirApiException("Null entry request object", "Provide HTTP verb (i.e. GET | POST | PUT | DELETE)", HttpStatusCode.BadRequest, "400", "Bad Request");
+                        if (entry.Request.Method.HasValue == false) throw new FhirApiException("HTTP verb not supplied", "Provide HTTP verb (i.e. GET | POST | PUT | DELETE)", HttpStatusCode.BadRequest, "400", "Bad Request");
+
+                        if (entry.Request.Method.Value == Bundle.HTTPVerb.POST) 
+                        {
+                            // Save new resource
+                            Resource createdResource = SaveNewFhirResource(entry.Resource);
+                            var responseComponent = new Bundle.ResponseComponent
+                            {
+                                Status = "201 Created",
+                                Location = $"{createdResource.TypeName}/{createdResource.Id}/_history/1",
+                                Etag = "W/\"1\""
+                            };
+                            if (createdResource.Meta.LastUpdated.HasValue)
+                                responseComponent.LastModified = createdResource.Meta.LastUpdated;
+
+                            // Add response to entry (see https://www.hl7.org/fhir/bundle.html#transaction-response)
+                            responseBundle.Entry.Add(new Bundle.EntryComponent
+                            {
+                                Resource = createdResource,
+                                Response = responseComponent
+                            });
+
+                        }
+                        else if (entry.Request.Method.Value == Bundle.HTTPVerb.PUT) 
+                        {
+                            // Update resource
+                            Resource updatedResource = UpdateFhirResource(entry.Resource);
+                            var responseComponent = new Bundle.ResponseComponent
+                            {
+                                Status = "200 OK",
+                                Location = $"{updatedResource.TypeName}/{updatedResource.Id}/_history/{updatedResource.VersionId}",
+                                Etag = $"W/\"{updatedResource.VersionId}\""
+                            };
+                            if (updatedResource.Meta.LastUpdated.HasValue)
+                                responseComponent.LastModified = updatedResource.Meta.LastUpdated;
+
+                            // Add response to entry (see https://www.hl7.org/fhir/bundle.html#transaction-response)
+                            responseBundle.Entry.Add(new Bundle.EntryComponent
+                            {
+                                Resource = updatedResource,
+                                Response = responseComponent
+                            });
+
+                        }
+                        else
+                        {
+                            throw new FhirApiException("Unable to hanlde this HTTP verb",
+                                "Only POST and PUT are supported ", HttpStatusCode.NotImplemented, "501", "Not Implemented");
+                        }                                             
+                    }
+                    catch (FhirApiException ex)
+                    {
+                        // Create Response
+                        OperationOutcome operationOutcomeResource = CreateOutcomeResponse(ex);
+                        var responseComponent = new Bundle.ResponseComponent
+                        {
+                            Status = $"{ex.HttpStatusCodeValue} {ex.HttpStatusCodeDescription}", // If this is a FhirApiException, we need to return the associated Http Status code 
+                            Outcome = operationOutcomeResource
+                        };
+
+                        // Add response to entry (see https://www.hl7.org/fhir/bundle.html#transaction-response)
+                        responseBundle.Entry.Add(new Bundle.EntryComponent
+                        {
+                            Response = responseComponent
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        // Create Response
+                        OperationOutcome operationOutcomeResource = CreateOutcomeResponse(ex);
+                        var responseComponent = new Bundle.ResponseComponent
+                        {
+                            Status = "500 Internal Server Error", // If this is a 'general' Exception Http Status code will be 500
+                            Outcome = operationOutcomeResource
+                        };
+
+                        // Add response to entry (see https://www.hl7.org/fhir/bundle.html#transaction-response)
+                        responseBundle.Entry.Add(new Bundle.EntryComponent
+                        {
+                            Response = responseComponent
+                        });
+                    }
+                }
+
+                responseBundle.Total = responseBundle.Entry.Count;
+
+                // we need to return the response bundle the client
+                byte[] bytes;
+                string contentType;
+                if (DetermineResourceFormat(request) == ResourceFormat.Json)
+                {
+                    var jsonSerializer = new FhirJsonSerializer();
+                    string json = jsonSerializer.SerializeToString(responseBundle);
+                    bytes = Encoding.UTF8.GetBytes(json);
+                    contentType = "application/fhir+json;charset=UTF-8";
+                }
+                else
+                {
+                    var xmlSerializer = new FhirXmlSerializer();
+                    string xml = xmlSerializer.SerializeToString(responseBundle);
+                    bytes = Encoding.UTF8.GetBytes(xml);
+                    contentType = "application/fhir+xml;charset=UTF-8";
+                }
+
+                Response response = new Response
+                {
+                    StatusCode = HttpStatusCode.OK,
+                    ContentType = contentType,
+                    Headers = new Dictionary<string, string>
+                            {
+                                { "Content-Type", contentType }
+                            },
+                    Contents = c => c.Write(bytes, 0, bytes.Length)
+                };
+
+                Logger.Info($"{request.Method} {request.Url} {HttpStatusCode.OK}");
+                return response;
+            }
+            catch (FhirApiException ex)
+            {
+                return CreateFhirResponse(request, CreateOutcomeResponse(ex), ex);
+            }
+            catch (Exception ex)
+            {
+                return CreateFhirResponse(request, CreateOutcomeResponse(ex), ex);
+            }            
+        }
+
         internal static Response ProcessGetRequest<TResource>(Request request, int resourceId) where TResource : DomainResource
         {
-            //Logger.InfoFormat("GET {0}", request.Url);
-
             try
             {
                 var resource = GetFhirResourceById<TResource>(resourceId);
@@ -65,13 +208,31 @@ namespace iCDR.FhirApi
 
         }
 
-        internal static Response ProcessPostRequest<TResource>(Request request, List<string> searchFields)
+        public static Response ProcessGetHistoryRequest<TResource>(Request request, int id) where TResource : Resource
+        {
+            try
+            {
+                Bundle bundle = GetFhirResourceHistory<TResource>(request, id);
+                Response response = CreateFhirResponse(request, bundle, null);
+                return response;
+            }
+            catch (FhirApiException ex)
+            {
+                return CreateFhirResponse(request, CreateOutcomeResponse(ex), ex);
+            }
+            catch (Exception ex)
+            {
+                return CreateFhirResponse(request, CreateOutcomeResponse(ex), ex);
+            }
+        }
+
+        internal static Response ProcessPostRequest<TResource>(Request request)
             where TResource : DomainResource
         {
             try
             {
                 var requestResource = RetrieveFhirResourceFromRequest<TResource>(request);
-                Resource resource = SaveNewFhirResource(requestResource, searchFields);
+                Resource resource = SaveNewFhirResource(requestResource);
 
                 // see https://www.hl7.org/fhir/http.html#create for required HTTP headers for response
                 string location = $"{request.Url}/{resource.Id}/_history/1";
@@ -120,13 +281,13 @@ namespace iCDR.FhirApi
             }
         }
 
-        internal static Response ProcessPutRequest<TResource>(Request request, List<string> searchFields)
+        internal static Response ProcessPutRequest<TResource>(Request request)
             where TResource : DomainResource
         {
             try
             {
                 var requestResource = RetrieveFhirResourceFromRequest<TResource>(request);
-                Resource resource = UpdateFhirResource(requestResource, searchFields);
+                Resource resource = UpdateFhirResource(requestResource);
 
                 // see https://www.hl7.org/fhir/http.html#update for required HTTP headers for response
                 string location = $"{request.Url}/{resource.Id}/_history/{resource.Meta.VersionId}";
@@ -268,8 +429,69 @@ namespace iCDR.FhirApi
             }
             catch (Exception ex)
             {
-                throw new FhirApiException(ex.Message, $"Unable to parse FHIR resource - check resource is of type '{typeof(TResource)}'", HttpStatusCode.BadRequest);
+                throw new FhirApiException(ex.Message, $"Unable to parse FHIR resource - check resource is of type '{typeof(TResource)}'", HttpStatusCode.BadRequest, "400", "Bad Request");
             }
+        }
+
+        private static Bundle GetFhirResourceHistory<TResource>(Request request, int id) where TResource : Resource
+        {
+            var fhirXmlParser = new FhirXmlParser(new ParserSettings());
+            List<TResource> historyResources = new List<TResource>();
+
+            var iCdrDb = new iCDRDataContext();
+            using (var sqlConnection = new SqlConnection(iCdrDb.Connection.ConnectionString))
+            {
+                var command = sqlConnection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "GetFhirResourceHistory";
+                command.Parameters.Add(
+                    new SqlParameter
+                    {
+                        ParameterName = "@ResourceId",
+                        Direction = ParameterDirection.Input,
+                        SqlDbType = SqlDbType.Int,
+                        Value = id
+                    }
+                );
+                sqlConnection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string resourceXml = reader[0].ToString();
+                        try
+                        {
+                            TResource historyResource = fhirXmlParser.Parse<TResource>(resourceXml);
+                            historyResources.Add(historyResource);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new FhirApiException(ex.Message, $"Unable to retrieve FHIR resource - check resource is of type '{typeof(TResource)}'", HttpStatusCode.BadRequest, "400", "Bad Request");
+                        }
+                    }
+                }
+            }
+
+            // Create history bundle
+            Bundle responseBundle = new Bundle
+            {
+                Type = Bundle.BundleType.History,
+                Meta = new Meta {LastUpdated = DateTime.Now},
+                Total = historyResources.Count
+            };
+
+            foreach (TResource historyResource in historyResources)
+            {
+                responseBundle.Entry.Add(new Bundle.EntryComponent
+                {
+                    FullUrl = $"{request.Url.SiteBase}/{historyResource.TypeName}/{historyResource.Id}/_history/{historyResource.VersionId}",
+                    Resource = historyResource
+                });
+            }
+
+            return responseBundle;
+
         }
 
         private static Bundle SearchFhirResources<TResource>(Request request) where TResource : Resource
@@ -289,7 +511,7 @@ namespace iCDR.FhirApi
                     {
                         ParameterName = "@QueryString",
                         Direction = ParameterDirection.Input,
-                        SqlDbType = SqlDbType.Text,
+                        SqlDbType = SqlDbType.VarChar,                        
                         Value = queryString
                     }
                 );
@@ -327,6 +549,7 @@ namespace iCDR.FhirApi
             {
                 respBundle.Entry.Insert(0, new Bundle.EntryComponent
                 {
+                    FullUrl = $"{request.Url.SiteBase}/{resource.TypeName}/{resource.Id}",
                     Resource = resource,
                     Search = new Bundle.SearchComponent
                     {
@@ -334,7 +557,6 @@ namespace iCDR.FhirApi
                     }
                 });
             }
-
 
             return respBundle;
         }
@@ -401,7 +623,8 @@ namespace iCDR.FhirApi
                     Logger.Info($"{request.Method} {request.Url} {httpStatusCode}");
                     break;
                 case HttpStatusCode.BadRequest:
-                case HttpStatusCode.UnprocessableEntity:                
+                case HttpStatusCode.UnprocessableEntity:
+                case HttpStatusCode.NotImplemented:                    
                     Logger.WarnFormat($"{request.Method} {request.Url} {httpStatusCode}");
                     Logger.Debug(ex);
                     if (request.Method == "POST" || request.Method == "PUT") LogFhirRequestBody(request);
@@ -442,7 +665,7 @@ namespace iCDR.FhirApi
                     else
                     {
                         {
-                            throw new FhirApiException("Unable to determine the resource Content-Type", "Please check HTTP request header", HttpStatusCode.BadRequest);
+                            throw new FhirApiException("Unable to determine the resource Content-Type", "Please check HTTP request header", HttpStatusCode.BadRequest, "400", "Bad Request");
                         }
                     }
                 }
@@ -466,7 +689,7 @@ namespace iCDR.FhirApi
             return body;
         }
 
-        private static TResource RetrieveFhirResourceFromRequest<TResource>(Request request) where TResource : DomainResource
+        private static TResource RetrieveFhirResourceFromRequest<TResource>(Request request) where TResource : Resource
         {
             TResource fhirResource;
             string contentType = request.Headers.ContentType;
@@ -487,19 +710,19 @@ namespace iCDR.FhirApi
             }
             else
             {
-                throw new FhirApiException("Unable to determine the resource Content-Type", "Please check HTTP request header", HttpStatusCode.BadRequest);
+                throw new FhirApiException("Unable to determine the resource Content-Type", "Please check HTTP request header", HttpStatusCode.BadRequest, "400", "Bad Request");
             }
             return fhirResource;
         }
 
-        private static Resource SaveNewFhirResource(DomainResource resource, List<string> searchIndexFields)
+        private static Resource SaveNewFhirResource(Resource resource)
         {
             int? resourceId = 0;
             DateTime timeStamp = DateTime.Now;
             var iCdrDb = new iCDRDataContext();
 
             // Save the resource - step 1: Check the resource includes a contained patient resource with > 0 identifiers, and retrieve the identifiers
-            List<Identifier> patientIdentifiers = GetPatientIdentifiers(resource);
+            List<Identifier> patientIdentifiers = GetPatientIdentifiers((DomainResource)resource);
 
             // Save the resource - step 2: Get the resource id
             iCdrDb.CreateFhirResourceId(resource.ResourceType.ToString(), ref resourceId);
@@ -525,10 +748,17 @@ namespace iCDR.FhirApi
             }
 
             // Save the resource - step 6: Save search index data 
+            List<string> searchIndexFields = GetSearchFieldsForResourceType(resource.TypeName);
             foreach (string field in searchIndexFields)
             {
-                AddSearchDataToIndex(field, resource);
+                AddSearchDataToIndex(field, (DomainResource)resource);
             }
+
+            // Save the resource - step 7: Call GW's logging function 'prStoreResource'
+            var jsonSerializer = new FhirJsonSerializer();
+            string json = jsonSerializer.SerializeToString(resource);
+            iCdrDb.prStoreResource(new XElement(xmlTree), json, "POST", "");
+
 
             // todo: need to consider how we can encapsulate sql inserts into a single transaction
 
@@ -536,10 +766,10 @@ namespace iCDR.FhirApi
             {
                 return resource;
             }
-            throw new FhirApiException("Unable to create resource", "It was not possible to create an id for the FHIR resource - check log", HttpStatusCode.InternalServerError);
+            throw new FhirApiException("Unable to create resource", "It was not possible to create an id for the FHIR resource - check log", HttpStatusCode.InternalServerError, "500", "Internal Server Error");
         }
 
-        private static Resource UpdateFhirResource(DomainResource resource, List<string> searchIndexFields)
+        private static Resource UpdateFhirResource(Resource resource)
         {
             int resourceId = Convert.ToInt32(resource.Id);
             int? currentVersion = 0;
@@ -547,8 +777,8 @@ namespace iCDR.FhirApi
             var timeStamp = DateTime.Now;
             var iCdrDb = new iCDRDataContext();
 
-            // Save the resource - step 1: Check the resource includes a contained patient resource with > 0 identifiers, and retrieve the identifiers
-            List<Identifier> patientIdentifiers = GetPatientIdentifiers(resource);
+            // Update the resource - step 1: Check the resource includes a contained patient resource with > 0 identifiers, and retrieve the identifiers
+            List<Identifier> patientIdentifiers = GetPatientIdentifiers((DomainResource)resource);
 
             // Save the resource - step 2: Get the current version of the resource to determine the next version number
             iCdrDb.GetFhirResourceCurrentVersion(resourceId, ref currentVersion);
@@ -561,31 +791,38 @@ namespace iCDR.FhirApi
                 throw new Exception("Unable to determine new version number");
             }
 
-            // Save the resource - step 3: Update resource metadata
+            // Update the resource - step 3: Update resource metadata
             resource.Meta = new Meta
             {
                 LastUpdated = timeStamp,
                 VersionId = version.ToString()
             };
 
-            // Save the resource - step 3: Save resource version
+            // Update the resource - step 3: Save resource version
             var xmlSerializer = new FhirXmlSerializer();
             string xml = xmlSerializer.SerializeToString(resource);
             XElement xmlTree = XElement.Parse(xml);
             iCdrDb.CreateFhirResourceVersion(resourceId, version, timeStamp, new XElement(xmlTree));
 
-            // Save the resource - step 4: Save patient identifiers
+            // Update the resource - step 4: Save patient identifiers
             foreach (var identifier in patientIdentifiers)
             {
                 iCdrDb.CreatePatientIdentifierResourceLink(identifier.Value, identifier.System, resourceId);
             }
 
-            // Save the resource - step 5: Clear search data for previous version and re-save search index data 
+            // Update the resource - step 5: Clear search data for previous version and re-save search index data 
             iCdrDb.ClearSearchIndex(resourceId);
+            List<string> searchIndexFields = GetSearchFieldsForResourceType(resource.TypeName);
             foreach (string field in searchIndexFields)
             {
-                AddSearchDataToIndex(field, resource);
+                AddSearchDataToIndex(field, (DomainResource)resource);
             }
+
+
+            // Update the resource - step 6: Call GW's logging function 'prStoreResource'
+            var jsonSerializer = new FhirJsonSerializer();
+            string json = jsonSerializer.SerializeToString(resource);
+            iCdrDb.prStoreResource(new XElement(xmlTree), json, "PUT", "");
 
             return resource;
         }
@@ -600,7 +837,9 @@ namespace iCDR.FhirApi
                 {
                     var patient = (Patient)containedResource;
                     if (patient.Identifier.Count == 0)
-                        throw new FhirApiException("The contained patient resourse has zero identifiers", "Resources posted to this FHIR API must include a contained patient resource with > 0 identifiers", HttpStatusCode.UnprocessableEntity);
+                        throw new FhirApiException("The contained patient resourse has zero identifiers", 
+                            "Resources posted to this FHIR API must include a contained patient resource with > 0 identifiers", 
+                            HttpStatusCode.UnprocessableEntity, "422", "Unprocessable Entity");
                     patientIdentifiers = patient.Identifier;
                     hasContainedPatient = true;
                     break;
@@ -609,7 +848,9 @@ namespace iCDR.FhirApi
 
             if (!hasContainedPatient)
                 throw new FhirApiException(
-                    $"The {resource.TypeName} reasource does not include a contained patient resource", "Resources posted to this FHIR API must include a contained patient resource with > 0 identifiers", HttpStatusCode.UnprocessableEntity);
+                    $"The {resource.TypeName} reasource does not include a contained patient resource", 
+                        "Resources posted to this FHIR API must include a contained patient resource with > 0 identifiers", 
+                        HttpStatusCode.UnprocessableEntity, "422", "Unprocessable Entity");
 
             return patientIdentifiers;
         }
@@ -669,6 +910,18 @@ namespace iCDR.FhirApi
         {
             var iCdrDb = new iCDRDataContext();
             iCdrDb.AddToSearchIndex(resourceId, field, value);
+        }
+
+        // ReSharper disable once UnusedParameter.Local TODO: fix this!!
+        private static List<string> GetSearchFieldsForResourceType(string resourceType)
+        {
+            // TODO: hardcoded for now...
+            var searchFields = new List<string>
+                {
+                    "Code",
+                    "Category"
+                };
+            return searchFields;
         }
     }
 }

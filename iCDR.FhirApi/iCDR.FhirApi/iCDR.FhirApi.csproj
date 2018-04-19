@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FhirApiException.cs" />
+    <Compile Include="Modules\BundleModule.cs" />
     <Compile Include="Modules\ProcedureModule.cs" />
     <Compile Include="Modules\AllergyIntoleranceModule.cs" />
     <Compile Include="iCDR.designer.cs">
